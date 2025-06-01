@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - Arthavidya Trading Community</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Success Stories Page Specific Styles */
+        .page-banner {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-banner h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .page-banner p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .success-stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .success-story-card {
+            background-color: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .success-story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-md);
+        }
+        
+        .success-story-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .success-story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .success-story-card:hover .success-story-image img {
+            transform: scale(1.05);
+        }
+        
+        .success-story-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .success-story-title {
+            color: var(--primary-blue);
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .success-story-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        .success-story-meta i {
+            margin-right: 5px;
+            color: var(--accent-red);
+        }
+        
+        .success-story-meta span {
+            margin-right: 15px;
+        }
+        
+        .success-story-excerpt {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            background-color: var(--primary-blue-lighter);
+            color: var(--primary-blue);
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+        
+        .read-more-btn:hover {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+        }
+        
+        .success-story-achievement {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .achievements-wrapper {
+            margin-bottom: 15px;
+        }
+        
+        .profile-info {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .profile-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .page-number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            transition: var(--transition);
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        
+        .page-number:hover, .page-number.active {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+        }
+        
+        .filter-section {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-tag {
+            background-color: var(--bg-white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        
+        .filter-tag:hover, .filter-tag.active {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+        }
+        
+        /* Page content visibility */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Filter category visibility */
+        .story-category {
+            display: none;
+        }
+        
+        .story-category.active {
+            display: block;
+        }
+        
+        .success-story-card[data-category] {
+            display: none;
+        }
+        
+        .success-story-card.show {
+            display: flex;
+        }
+        
+        /* Tab navigation */
+        .tabs-nav {
+            display: flex;
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        .tab-item {
+            padding: 15px 25px;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab-item:hover {
+            background-color: rgba(11, 87, 164, 0.1);
+        }
+        
+        .tab-item.active {
+            background-color: var(--bg-white);
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--primary-blue);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background-color: var(--bg-white);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: var(--box-shadow-sm);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .success-stories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .page-banner h1 {
+                font-size: 30px;
+            }
+            
+            .tab-item {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .success-stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-options {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .filter-tag {
+                display: block;
+                text-align: center;
+            }
+            
+            .tabs-nav {
+                flex-direction: column;
+            }
+            
+            .tab-item {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+            
+            .tab-item.active {
+                border-bottom: none;
+                border-left: 3px solid var(--primary-blue);
+            }
+        }
+        .story-actions{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <img src="assets/images/Logo-A.png" alt="Arthavidya Trading Community">
+                    <div class="logo-text">
+                        <h1>Arthavidya Trading Community</h1>
+                        <p>Building A Wealthy Nation</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="programs.html">Our Programs <i class="fas fa-caret-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="programs.html#CTP">Complete Trading Program (CTP)</a></li>
+                                <li><a href="programs.html#AMP">Arthavidya Mentorship Program (AMP)</a></li>
+                                <li><a href="programs.html#GMP">Growth Mindset Program (GMP)</a></li>
+                                <li><a href="programs.html#SIP">Smart Income Program (SIP)</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="success-stories.html" class="active">Success Stories</a></li>
+                        <li><a href="../dashboard/student/studentfrom.html" class="register-btn">Register</a></li>
+                        <li><a href="login.html" class="login-btn">Login</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Page Banner -->
+<section class="page-banner">
+    <div class="container">
+        <h1>Our Success Stories</h1>
+        <p>Discover how traders transformed their financial journey with Arthavidya Trading Community</p>
+    </div>
+</section>
+
+<!-- Tabs Navigation -->
+<div class="container">
+    <div class="tabs-nav">
+        <div class="tab-item active" data-tab="all-stories">All Stories</div>
+        <div class="tab-item" data-tab="featured">Featured Traders</div>
+        <div class="tab-item" data-tab="videos">Video Testimonials</div>
+        <div class="tab-item" data-tab="become-story">Share Your Story</div>
+    </div>
+</div>
+
+<!-- Tab Contents -->
+<div class="container">
+    <!-- All Stories Tab Content -->
+    <div class="tab-content active" id="all-stories">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <h3 class="mb-3">Filter Success Stories</h3>
+                <div class="filter-options">
+                    <div class="filter-tag active" data-category="all">All</div>
+                    <div class="filter-tag" data-category="intraday">Intraday Trading</div>
+                    <div class="filter-tag" data-category="options">Options Trading</div>
+                    <div class="filter-tag" data-category="swing">Swing Trading</div>
+                    <div class="filter-tag" data-category="beginner">Beginners</div>
+                    <div class="filter-tag" data-category="experienced">Experienced</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page Navigation -->
+        <div class="page-content active" id="page1">
+            <!-- Success Stories Grid -->
+            <div class="success-stories-grid">
+                <!-- Success Story 1 -->
+                <div class="success-story-card show" data-category="options beginner">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women.avif" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">From Novice to Consistent Trader</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined April 2022</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Options Trading</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">76% Win Rate</span>
+                            <span class="success-story-achievement">10+ Lakh Profit</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>When I joined Arthavidya, I had zero knowledge about trading. After completing the CTP program and implementing the strategy meticulously, I achieved consistent monthly profits. The mentorship and community support played a crucial role in my journey.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 2 -->
+                <div class="success-story-card show" data-category="intraday beginner">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women2.jpeg" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">Breaking the Loss Cycle</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined May 2023</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Intraday Trading</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">Risk Management</span>
+                            <span class="success-story-achievement">Consistent Profits</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>After experiencing consistent losses, I was about to give up on trading. Arthavidya's structured approach to risk management and disciplined trading completely changed my perspective. Now I trade with confidence and a clear strategy.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-2.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 3 -->
+                <div class="success-story-card show" data-category="options experienced">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women3.jpg" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">Trading Part-Time to Full-Time</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined January 2022</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Options Trading</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">Career Transition</span>
+                            <span class="success-story-achievement">Financial Freedom</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>Starting as a weekend trader while keeping my corporate job, Arthavidya's strategies helped me scale my trading account consistently. After 18 months, I was confident enough to transition to full-time trading, which has given me financial independence.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-3.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 4 -->
+                <div class="success-story-card show" data-category="swing experienced">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women4.jpg" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">Conquering Market Volatility</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined July 2023</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Swing Trading</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">Volatility Expert</span>
+                            <span class="success-story-achievement">82% Win Rate</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>The advanced market analysis techniques I learned at Arthavidya have been instrumental in navigating volatile market conditions. Unlike before, I now see volatility as an opportunity rather than a threat, leading to significant improvement in my results.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-4.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 5 -->
+                <div class="success-story-card show" data-category="experienced">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women5.jpg" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">Building a Trading Community</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined March 2021</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Mentorship</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">Community Leader</span>
+                            <span class="success-story-achievement">Mentor</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>After finding success with Arthavidya's strategies, I was inspired to help others in my local community. With the support of Arthavidya's team, I now lead a local trading group where we implement proven methods and help each other grow.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-5.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 6 -->
+                <div class="success-story-card show" data-category="experienced beginner">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women6.jpeg" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">Mastering Technical Analysis</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined December 2022</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Technical Analysis</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">Chart Expert</span>
+                            <span class="success-story-achievement">High Accuracy</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>The detailed technical analysis course at Arthavidya transformed my trading approach. Understanding chart patterns and indicators at a deeper level allowed me to spot high-probability setups that I previously missed and significantly improved my trade accuracy.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-6.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content" id="page2">
+            <!-- Success Stories Grid - Page 2 -->
+            <div class="success-stories-grid">
+                                <!-- Success Story 7 -->
+                <div class="success-story-card show" data-category="options experienced">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women7.webp" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">Options Trading Success</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined June 2021</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Options Trading</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">Income Replacement</span>
+                            <span class="success-story-achievement">Strategy Expert</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>Learning advanced options strategies at Arthavidya gave me a competitive edge in the markets. I now generate consistent income through strategic options positions, with a clear understanding of risk management principles that protect my capital.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-7.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 8 -->
+                <div class="success-story-card show" data-category="intraday beginner">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women5.jpg" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">My First Year of Trading</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined August 2023</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Intraday Trading</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">New Trader</span>
+                            <span class="success-story-achievement">Quick Learner</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>Starting my trading journey with Arthavidya provided me with a solid foundation. The step-by-step approach to learning helped me avoid common beginner mistakes, and I achieved profitability much faster than I expected.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-8.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 9 -->
+                <div class="success-story-card show" data-category="swing experienced">
+                    <div class="success-story-image">
+                        <img src="assets/images/trading women4.jpg" alt="Rasmita Parida">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Rasmita Parida</span>
+                    </div>
+                    <div class="success-story-content">
+                        <h3 class="success-story-title">Building Wealth Through Swing Trading</h3>
+                        <div class="success-story-meta">
+                            <i class="fas fa-calendar"></i>
+                            <span>Joined February 2022</span>
+                            <i class="fas fa-tag"></i>
+                            <span>Swing Trading</span>
+                        </div>
+                        <div class="achievements-wrapper">
+                            <span class="success-story-achievement">Wealth Builder</span>
+                            <span class="success-story-achievement">Portfolio Growth</span>
+                        </div>
+                        <div class="success-story-excerpt">
+                            <p>Arthavidya's swing trading techniques have allowed me to grow my investment portfolio steadily while maintaining my full-time job. The multi-day holding strategies taught in their advanced courses fit perfectly with my busy lifestyle.</p>
+                        </div>
+                        <div class="story-actions">
+                            <a href="stories/rasmita-parida-9.html" class="read-more-btn">Read Full Story</a>
+                            <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="page-content" id="page3">
+            <div class="success-stories-grid">
+
+            </div>
+        </div> -->
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <div class="page-number active" data-page="page1">1</div>
+            <div class="page-number" data-page="page2">2</div>
+            <div class="page-number" data-page="page3">3</div>
+            <div class="page-number" id="next-page"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+
+    <!-- Featured Traders Tab Content -->
+    <div class="tab-content" id="featured">
+        <div class="success-stories-grid">
+            <!-- Featured Trader 1 -->
+            <div class="success-story-card">
+                <div class="success-story-image">
+                    <img src="assets/images/trading women.avif" alt="Rasmita Parida">
+                </div>
+                <div class="profile-info">
+                    <span class="profile-name">Rasmita Parida</span>
+                </div>
+                <div class="success-story-content">
+                    <h3 class="success-story-title">Top Performer of 2024</h3>
+                    <div class="success-story-meta">
+                        <i class="fas fa-calendar"></i>
+                        <span>Joined January 2022</span>
+                        <i class="fas fa-tag"></i>
+                        <span>Options Trading</span>
+                    </div>
+                    <div class="achievements-wrapper">
+                        <span class="success-story-achievement">Trader of the Year</span>
+                        <span class="success-story-achievement">95% Win Rate</span>
+                    </div>
+                    <div class="success-story-excerpt">
+                        <p>After three years of dedicated learning and practice with Arthavidya, I've achieved a remarkable 95% win rate on my trades. My consistent performance earned me the "Trader of the Year" award in our annual trading championship.</p>
+                    </div>
+                    <div class="story-actions">
+                        <a href="stories/rasmita-parida-featured.html" class="read-more-btn">Read Full Story</a>
+                        <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Trader 2 -->
+            <div class="success-story-card">
+                <div class="success-story-image">
+                    <img src="assets/images/trading women2.jpeg" alt="Rasmita Parida">
+                </div>
+                <div class="profile-info">
+                    <span class="profile-name">Rasmita Parida</span>
+                </div>
+                <div class="success-story-content">
+                    <h3 class="success-story-title">Most Improved Trader</h3>
+                    <div class="success-story-meta">
+                        <i class="fas fa-calendar"></i>
+                        <span>Joined March 2023</span>
+                        <i class="fas fa-tag"></i>
+                        <span>Intraday Trading</span>
+                    </div>
+                    <div class="achievements-wrapper">
+                        <span class="success-story-achievement">Rapid Progress</span><span class="success-story-achievement">800% Account Growth</span>
+                    </div>
+                    <div class="success-story-excerpt">
+                        <p>I joined Arthavidya with a small trading account and limited knowledge. Their systematic training and focused mentorship helped me multiply my account size by 8x in just 14 months, earning me the "Most Improved Trader" award.</p>
+                    </div>
+                    <div class="story-actions">
+                        <a href="stories/rasmita-parida-featured-2.html" class="read-more-btn">Read Full Story</a>
+                        <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video Testimonials Tab Content -->
+    <div class="tab-content" id="videos">
+        <div class="success-stories-grid">
+            <div class="success-story-card">
+                <div class="success-story-image">
+                    <img src="assets/images/trading women3.jpg" alt="Rasmita Parida">
+                </div>
+                <div class="profile-info">
+                    <span class="profile-name">Rasmita Parida</span>
+                </div>
+                <div class="success-story-content">
+                    <h3 class="success-story-title">My Trading Journey</h3>
+                    <div class="success-story-meta">
+                        <i class="fas fa-calendar"></i>
+                        <span>Recorded May 2024</span>
+                        <i class="fas fa-tag"></i>
+                        <span>Options Trading</span>
+                    </div>
+                    <div class="success-story-excerpt">
+                        <p>Watch my journey from a corporate employee to a full-time trader. In this video, I share the challenges I faced, strategies that worked, and how Arthavidya's training helped me achieve financial freedom.</p>
+                    </div>
+                    <div class="story-actions">
+                        <a href="videos/rasmita-parida-1.html" class="read-more-btn">Watch Video</a>
+                        <a href="#" class="share-btn"><i class="fa-solid fa-share"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Share Your Story Tab Content -->
+    <div class="tab-content" id="become-story">
+        <h2 class="text-center mb-4">Share Your Trading Success Story</h2>
+        <p class="text-center mb-4">We would love to hear how Arthavidya Trading Community has helped you in your trading journey. Submit your story to inspire others!</p>
+        
+        <form class="success-story-form">
+            <div class="form-group">
+                <label class="form-label" for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="joined">When did you join Arthavidya?</label>
+                <input type="month" id="joined" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="program">Which program did you enroll in?</label>
+                <select id="program" class="form-control" required>
+                    <option value="">-- Select Program --</option>
+                    <option value="CTP">Complete Trading Program (CTP)</option>
+                    <option value="AMP">Advanced Mentorship Program (AMP)</option>
+                    <option value="GMP">Group Mentorship Program (GMP)</option>
+                    <option value="SIP">Special Intraday Program (SIP)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="story">Your Success Story</label>
+                <textarea id="story" class="form-control" rows="5" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="photo">Upload Your Photo</label>
+                <input type="file" id="photo" class="form-control">
+                <small class="text-muted">Max file size: 2MB. Formats: JPG, PNG</small>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Achievements (Select all that apply)</label>
+                <div class="checkbox-group">
+                    <div>
+                        <input type="checkbox" id="consistent-profits" name="achievement">
+                        <label for="consistent-profits">Consistent Profits</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="career-transition" name="achievement">
+                        <label for="career-transition">Career Transition to Trading</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="strategy-mastery" name="achievement">
+                        <label for="strategy-mastery">Strategy Mastery</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="community-contribution" name="achievement">
+                        <label for="community-contribution">Community Contribution</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group text-center mt-4">
+                <button type="submit" class="btn btn-primary">Submit Your Story</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <h2>IMPORTANT DISCLAIMER</h2>
+            <p><strong>Arthavidya Trading Community</strong> is an educational institute focused on trading and financial market training. We do not offer investment advice, stock tips, or portfolio management services. All programs are strictly for educational purposes, and we do not guarantee any financial returns. Participants should do their own research before making investment decisions.</p>
+            <p>The management reserves the right to refuse or cancel admission at its discretion, even after payment.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <div class="logo-f">
+                        <img src="assets/images/Logo-A.png" alt="Arthavidya Trading Community">
+                        <div class="logo-f-text">
+                            <h1>Arthavidya Trading Community</h1>
+                            <p>Building A Wealthy Nation</p>
+                        </div>
+                    </div>
+                    <a href="mailto:arthavidyacommunity@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>arthavidyacommunity@gmail.com</span>
+                    </a>
+                    <a href="tel:+917854933728" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 7854933728</span>
+                    </a>
+                    <div class="fl-address">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Office:</h3>
+                        <p>Bhubaneswar, Odisha<br>
+                        India</p>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <a href="terms-and-condition.html">Terms and Conditions</a>
+                    <a href="terms-and-condition.html#refund-policy">Refund Policy</a>
+                    <a href="terms-and-condition.html#privacy-policy">Privacy Policy</a>
+                    <a href="enquiry form.html">Get Free Counselling</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Contact Us</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="programs.html">Our Programs</a>
+                    <a href="#">Career</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="success-stories.html">Success Stories</a>                    
+                </div>
+
+                <div class="footer-address">
+                    <h3>Connect with Us:</h3>
+                    <div class="social-links">
+                      <a href="https://www.facebook.com/arthavidyacommunity" class="social-icon" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/arthavidyacommunity/" class="social-icon" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-instagram"></i>
+                      </a>
+                     <a href="https://www.youtube.com/@ArthavidyaCommunity" class="social-icon" target="_blank" rel="noopener noreferrer">
+                     <i class="fab fa-youtube"></i>
+                     </a>
+                     <a href="https://x.com/arthavidyacomm" class="social-icon" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+                     <i class="fab fa-x-twitter"></i>
+                     </a>
+                    </div>
+                </div>                
+            </div>
+            
+            <div class="copyright">
+                <p>Arthavidya Trading Community Pvt Ltd © All Rights Reserved - 2025</p>
+                <p>Design and Developed by Arthavidya Trading Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab Navigation
+            const tabItems = document.querySelectorAll('.tab-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tab items and content
+                    tabItems.forEach(tab => tab.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to selected tab and content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Filter functionality
+            const filterTags = document.querySelectorAll('.filter-tag');
+            const storyCards = document.querySelectorAll('.success-story-card[data-category]');
+            
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Remove active class from all tags
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tag
+                    this.classList.add('active');
+                    
+                    // Filter stories based on category
+                    if (category === 'all') {
+                        storyCards.forEach(card => card.classList.add('show'));
+                    } else {
+                        storyCards.forEach(card => {
+                            const cardCategories = card.getAttribute('data-category').split(' ');
+                            if (cardCategories.includes(category)) {
+                                card.classList.add('show');
+                            } else {
+                                card.classList.remove('show');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Pagination functionality
+            const pageNumbers = document.querySelectorAll('.page-number[data-page]');
+            const pageContents = document.querySelectorAll('.page-content');
+            const nextPageBtn = document.getElementById('next-page');
+            let currentPageIndex = 0;
+            
+            function showPage(pageId) {
+                // Hide all pages
+                pageContents.forEach(page => page.classList.remove('active'));
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update page numbers active state
+                pageNumbers.forEach(num => {
+                    if (num.getAttribute('data-page') === pageId) {
+                        num.classList.add('active');
+                    } else {
+                        num.classList.remove('active');
+                    }
+                });
+                
+                // Update current page index
+                pageNumbers.forEach((num, index) => {
+                    if (num.getAttribute('data-page') === pageId) {
+                        currentPageIndex = index;
+                    }
+                });
+            }
+            
+            pageNumbers.forEach(num => {
+                num.addEventListener('click', function() {
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+            
+            // Next page button
+            if (nextPageBtn) {
+                nextPageBtn.addEventListener('click', function() {
+                    currentPageIndex = (currentPageIndex + 1) % pageNumbers.length;
+                    const nextPageId = pageNumbers[currentPageIndex].getAttribute('data-page');
+                    showPage(nextPageId);
+                });
+            }
+            
+            // Form validation for Share Your Story
+            const storyForm = document.querySelector('.success-story-form');
+            if (storyForm) {
+                storyForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic validation
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const story = document.getElementById('story').value;
+                    const program = document.getElementById('program').value;
+                    
+                    if (!name || !email || !story || !program) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // Validation passed, show success message
+                    // In a real implementation, you would submit the form data to your server
+                    alert('Thank you for sharing your success story! Our team will review it shortly.');
+                    storyForm.reset();
+                });
+            }
+            
+            // Mobile menu toggle functionality (already included in main.js)
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileMenuToggle && mainNav) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

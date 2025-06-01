@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Information Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .radio-option input {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        
+        .btn-submit {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+        
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        
+        @media (max-width: 768px) {
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enquiry Form</h2>
+        <form id="contactForm" action="#" method="POST">
+            <div class="form-group">
+                <label for="title" class="required">Title</label>
+                <select id="title" name="title" class="form-control" required>
+                    <option value="" disabled selected>Select a title</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Mrs.">Mrs.</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="required">Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="mobile" class="required">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="required">Age Group</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="ageGroup" value="Below 25 Years" required> Below 25 Years
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="ageGroup" value="26 to 40 Years"> 26 to 40 Years
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="ageGroup" value="41 to 60 Years"> 41 to 60 Years
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="ageGroup" value="More than 60 Years"> More than 60 Years
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="required">Email ID</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address" class="required">Address</label>
+                <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="preferredTime" class="required">Preferable Contact Time</label>
+                <select id="preferredTime" name="preferredTime" class="form-control" required>
+                    <option value="" disabled selected>Select preferred time</option>
+                    <option value="morning">Morning (9 AM - 12 PM)</option>
+                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                    <option value="evening">Evening (4 PM - 7 PM)</option>
+                    <option value="night">Night (7 PM - 9 PM)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you can add code to handle the form submission
+            // For example, sending the data to a server or displaying a success message
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>

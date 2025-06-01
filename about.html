@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us - Arthavidya Trading Community</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        
+        <!-- Additional CSS for internal pages -->
+        <style>
+            /* Fix for internal page headers */
+            .page-banner {
+                background: linear-gradient(135deg, #0b57a4 0%, #191f45 100%);
+                color: #ffffff;
+                padding: 20px 0;
+                text-align: center;
+                position: relative;
+            }
+            
+            .page-banner::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url("assets/images/pattern-bg.png");
+                background-size: cover;
+                opacity: 0.05;
+                z-index: 0;
+            }
+            
+            .page-banner h1 {
+                font-size: 36px;
+                margin-bottom: 15px;
+                font-weight: 700;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .page-banner p {
+                font-size: 18px;
+                max-width: 700px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+            }
+            
+            /* Fix for section layouts */
+            .section-heading {
+                position: relative;
+            }
+            
+            .section-heading h2 {
+                font-size: 28px;
+                color: #0b57a4;
+                margin-bottom: 15px;
+            }
+            
+            /* .section-heading::after {
+                content: '';
+                position: absolute;
+                width: 60px;
+                height: 3px;
+                background-color: #cb0a3c;
+                bottom: 0;
+                left: 0;
+            } */
+            
+            .text-center .section-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Mission Vision Sections - NEW DESIGN */
+            :root {
+                --primary-color: #0b57a4;
+                --secondary-color: #cb0a3c;
+                --dark-blue: #191f45;
+                --light-blue: #e8f1fa;
+                --light-red: #ffeaef;
+                --gray: #f5f5f5;
+                --dark-gray: #333;
+                --text-color: #444;
+                --white: #ffffff;
+            }
+            
+            .mission-vision-container {
+                padding: 25px 0;
+                position: relative;
+                overflow: hidden;
+                background-color: #f9f9f9;
+            }
+            
+            .mission-vision-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('assets/images/pattern-bg.png');
+                opacity: 0.05;
+                z-index: -1;
+            }
+            
+            .section-title {
+                text-align: center;
+                margin-bottom: 50px;
+                position: relative;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+                color: var(--primary-color);
+                margin-bottom: 15px;
+                position: relative;
+                display: inline-block;
+            }
+            
+            .section-title h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 3px;
+                background: var(--secondary-color);
+            }
+            
+            .section-title p {
+                font-size: 18px;
+                color: var(--dark-gray);
+                max-width: 700px;
+                margin: 20px auto 0;
+            }
+            
+            .mission-vision-tabs {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .tab-button {
+                padding: 15px 30px;
+                font-size: 18px;
+                font-weight: 600;
+                background-color: var(--white);
+                color: var(--dark-gray);
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border-radius: 50px;
+                margin: 0 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .tab-button.active {
+                background: linear-gradient(135deg, var(--primary-color), var(--dark-blue));
+                color: var(--white);
+                box-shadow: 0 8px 20px rgba(11, 87, 164, 0.3);
+            }
+            
+            .tab-content {
+                display: none;
+                animation: fadeIn 0.5s ease forwards;
+            }
+            
+            .tab-content.active {
+                display: block;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .content-card {
+                background-color: var(--white);
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+                display: flex;
+                min-height: 400px;
+            }
+            
+            .card-image {
+                flex: 1;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            
+            .content-card:hover .card-image img {
+                transform: scale(1.05);
+            }
+            
+            .mission-content .card-image::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 80px;
+                height: 100%;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            }
+            
+            .vision-content .card-image::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 80px;
+                height: 100%;
+                background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+            }
+            
+            .card-text {
+                flex: 1;
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .card-text h3 {
+                font-size: 28px;
+                color: var(--primary-color);
+                margin-bottom: 20px;
+                position: relative;
+                padding-bottom: 15px;
+            }
+            
+            .card-text h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background-color: var(--secondary-color);
+            }
+            
+            .card-text p {
+                font-size: 16px;
+                line-height: 1.8;
+                margin-bottom: 30px;
+            }
+            
+            .icon-box {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+            }
+            
+            .icon-circle {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--primary-color), var(--dark-blue));
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 20px;
+                box-shadow: 0 5px 15px rgba(11, 87, 164, 0.3);
+            }
+            
+            .icon-circle i {
+                color: var(--white);
+                font-size: 24px;
+            }
+            
+            .icon-text {
+                font-size: 16px;
+                font-weight: 500;
+                color: var(--dark-gray);
+            }
+            
+            /* Process Section - ENHANCED DESIGN */
+            .process-section {
+                padding: 25px 0;
+                background: linear-gradient(135deg, rgba(11, 87, 164, 0.05) 0%, rgba(25, 31, 69, 0.1) 100%);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .process-section::before {
+                content: '';
+                position: absolute;
+                top: -100px;
+                right: -100px;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, rgba(11, 87, 164, 0.2) 0%, rgba(11, 87, 164, 0) 70%);
+                border-radius: 50%;
+                z-index: 0;
+            }
+            
+            .process-section::after {
+                content: '';
+                position: absolute;
+                bottom: -100px;
+                left: -100px;
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(circle, rgba(203, 10, 60, 0.1) 0%, rgba(203, 10, 60, 0) 70%);
+                border-radius: 50%;
+                z-index: 0;
+            }
+            
+            .process-hexagons {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    z-index: 1;
+    gap: 20px;
+}
+            
+            .hexagon-wrapper {
+                position: relative;
+                width: 100%;
+                padding-top: 115%; /* Aspect ratio for hexagon */
+            }
+            
+            .process-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+            
+            .process-item:hover {
+                transform: translateY(-15px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            }
+            
+            .process-item:nth-child(odd) {
+                background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            }
+            
+            .process-item:nth-child(even) {
+                background: linear-gradient(135deg, #ffffff 0%, #fff0f5 100%);
+            }
+            
+            .process-number {
+    position: absolute;
+    top: 7px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-blue));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(11, 87, 164, 0.3);
+    z-index: 2;
+}
+            
+            .process-icon {
+                font-size: 36px;
+                color: var(--primary-color);
+                transition: all 0.3s ease;
+                margin-top: 15px;
+            }
+            
+            .process-item:hover .process-icon {
+                transform: scale(1.2);
+            }
+            
+            .process-title {
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--dark-gray);
+                margin-bottom: 10px;
+            }
+            
+            .process-text {
+                font-size: 14px;
+                color: var(--text-color);
+                line-height: 1.6;
+                display: none;
+            }
+            
+            .process-connection {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+                z-index: 0;
+            }
+            
+            .process-connection::before,
+            .process-connection::after {
+                content: '';
+                position: absolute;
+                top: -3px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+            }
+            
+            .process-connection::before {
+                left: 0;
+                background-color: var(--primary-color);
+            }
+            
+            .process-connection::after {
+                right: 0;
+                background-color: var(--secondary-color);
+            }
+            
+            /* Objectives Grid */
+            .objectives-section {
+                padding: 25px 0;
+                background-color: #ffffff;
+            }
+            
+            .objectives-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+                margin-top: 40px;
+            }
+            
+            .objective-item {
+                background-color: #ffffff;
+                border-radius: 10px;
+                padding: 30px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                transition: all 0.3s ease;
+                border-top: 3px solid #0b57a4;
+            }
+            
+            .objective-item:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            }
+            
+            .objective-icon {
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #0b57a4, #191f45);
+                color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+            
+            
+            /* Partners Section */
+            .partners-section {
+                padding: 70px 0;
+                background-color: #ffffff;
+                overflow: hidden;
+            }
+            
+            .partners-grid {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 30px;
+                margin-top: 40px;
+            }
+            
+            .partner-logo {
+                flex: 0 0 calc(20% - 30px);
+                min-width: 150px;
+                height: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                filter: grayscale(100%);
+                opacity: 0.7;
+                transition: all 0.3s ease;
+            }
+            
+            .partner-logo:hover {
+                filter: grayscale(0%);
+                opacity: 1;
+                transform: translateY(-5px);
+            }
+            
+            .partner-logo img {
+                max-width: 100%;
+                max-height: 60px;
+            }
+
+            /* Responsive fixes */
+            @media (max-width: 992px) {
+                .content-card {
+                    flex-direction: column;
+                }
+                
+                .card-image {
+                    height: 250px;
+                }
+                
+                .mission-content .card-image::after,
+                .vision-content .card-image::after {
+                    display: none;
+                }
+                
+                .process-hexagons {
+                    grid-template-columns: 1fr;
+                    max-width: 350px;
+                }
+                
+                .process-connection {
+                    display: none;
+                }
+                
+                .program-content,
+                .program-content.reverse,
+                .founder-content {
+                    flex-direction: column;
+                    gap: 30px;
+                }
+                
+                .program-image,
+                .founder-image {
+                    max-width: 100%;
+                }
+                
+                .page-banner h1 {
+                    font-size: 30px;
+                }
+                
+                .page-banner p {
+                    font-size: 16px;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .mission-vision-tabs {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 15px;
+                }
+                
+                .tab-button {
+                    width: 100%;
+                    max-width: 200px;
+                }
+                
+                .card-text {
+                    padding: 30px;
+                }
+                
+                .section-title h2 {
+                    font-size: 28px;
+                }
+                
+                .objectives-grid,
+                .team-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .program-features {
+                    grid-template-columns: 1fr;
+                }
+                
+                .page-banner {
+                    padding: 40px 0;
+                }
+                
+                .page-banner h1 {
+                    font-size: 26px;
+                }
+                
+                .partners-grid {
+                    justify-content: center;
+                }
+                
+                .partner-logo {
+                    flex: 0 0 calc(50% - 30px);
+                }
+            }
+        </style>
+    </head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <img src="assets/images/Logo-A.png" alt="Arthavidya Trading Community">
+                    <div class="logo-text">
+                        <h1>Arthavidya Trading Community</h1>
+                        <p>Building A Wealthy Nation</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html" class="active">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="programs.html">Our Programs <i class="fas fa-caret-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="programs.html#CTP">Complete Trading Program (CTP)</a></li>
+                                <li><a href="programs.html#AMP">Arthavidya Mentorship Program (AMP)</a></li>
+                                <li><a href="programs.html#GMP">Growth Mindset Program (GMP)</a></li>
+                                <li><a href="programs.html#SIP">Smart Income Program (SIP)</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="../dashboard/student/studentfrom.html" class="register-btn">Register</a></li>
+                        <li><a href="login.html" class="login-btn">Login</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Learn more about Arthavidya Trading Community and our mission</p>
+        </div>
+    </section>
+
+    <!-- Mission Vision Section - NEW DESIGN -->
+    <section class="mission-vision-container">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+                <p>Discover what drives Arthavidya Trading Community and our aspirations for the future</p>
+            </div>
+            
+            <div class="mission-vision-tabs">
+                <button class="tab-button active" onclick="openTab('mission')">Our Mission</button>
+                <button class="tab-button" onclick="openTab('vision')">Our Vision</button>
+            </div>
+            
+            <div id="mission" class="tab-content active">
+                <div class="content-card mission-content">
+                    <div class="card-image">
+                        <img src="assets/images/mission1.jpg" alt="Our Mission">
+                    </div>
+                    <div class="card-text">
+                        <h3>Our Mission</h3>
+                        <p>Our mission is to empower individuals with the knowledge, skills, and confidence to navigate the financial markets successfully. We aim to make high-quality trading education accessible to everyone, fostering financial independence through expert mentorship, structured learning, and a strong traders' community.</p>
+                        <div class="icon-box">
+                            <div class="icon-circle">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="icon-text">Empowering traders for financial success</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="vision" class="tab-content">
+                <div class="content-card vision-content">
+                    <div class="card-text">
+                        <h3>Our Vision</h3>
+                        <p>To be a leading trading education community, recognized for its commitment to excellence, practical learning, and a results-driven approach. We envision building a global network of skilled traders who consistently achieve financial growth and stability.</p>
+                        <div class="icon-box">
+                            <div class="icon-circle">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="icon-text">Building a global network of successful traders</div>
+                        </div>
+                    </div>
+                    <div class="card-image">
+                        <img src="assets/images/Financial graph overlays with people learning in the background.2.jpg" alt="Our Vision">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section - ENHANCED DESIGN -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Process</h2>
+                <p>How we help you master trading and achieve financial growth</p>
+            </div>
+            
+            <div class="process-hexagons">
+                <div class="hexagon-wrapper">
+                    <div class="process-item">
+                        <div class="process-number">1</div>
+                        <div class="process-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3 class="process-title">Enroll in the Course</h3>
+                        <p class="process-text">Choose the right level of trading education that suits your experience and goals.</p>
+                    </div>
+                </div>
+                
+                <div class="hexagon-wrapper">
+                    <div class="process-item">
+                        <div class="process-number">2</div>
+                        <div class="process-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="process-title">Structured Learning</h3>
+                        <p class="process-text">Step-by-step guidance from fundamentals to advanced strategies.</p>
+                    </div>
+                </div>
+                
+                <div class="hexagon-wrapper">
+                    <div class="process-item">
+                        <div class="process-number">3</div>
+                        <div class="process-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="process-title">Live Market Application</h3>
+                        <p class="process-text">Practice in real-time with expert supervision.</p>
+                    </div>
+                </div>
+                
+                <div class="hexagon-wrapper">
+                    <div class="process-item">
+                        <div class="process-number">4</div>
+                        <div class="process-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="process-title">Personalized Mentorship</h3>
+                        <p class="process-text">Get hands-on guidance and feedback for improvement.</p>
+                    </div>
+                </div>
+                
+                <div class="hexagon-wrapper">
+                    <div class="process-item">
+                        <div class="process-number">5</div>
+                        <div class="process-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="process-title">Community Engagement</h3>
+                        <p class="process-text">Join a network of traders for lifelong learning.</p>
+                    </div>
+                </div>
+                <div class="process-connection"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Objectives Section -->
+    <section class="objectives-section">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h2>Our Objectives</h2>
+                <p>At Arthavidya Trading Community, we're committed to the following key objectives:</p>
+            </div>
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <div class="objective-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Comprehensive Education</h3>
+                    <p>Provide comprehensive trading education from Basic to Advanced levels.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Profitable Trading Setups</h3>
+                    <p>Equip traders with high-probability, profitable setups to ensure consistent success.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Personalized Support</h3>
+                    <p>Offer personalized handholding support for practical market exposure.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Building</h3>
+                    <p>Develop a dynamic and collaborative trading community for continuous learning.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Risk Management</h3>
+                    <p>Focus on risk management and disciplined trading strategies to sustain long-term success.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Affordability</h3>
+                    <p>Make trading education affordable and accessible to all aspiring traders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <div class="founder-section">
+        <div class="section-heading">
+            <h2>About Founder</h2>
+        </div>
+        <div class="founder-content">
+            <div class="founder-image">
+                <img src="assets/images/arthvidya founder.jpg" alt="Andaz Aaron">
+            </div>
+            <div class="founder-info">
+                <h4>ANDAZ AARON</h4>
+                <p>Andaz Aaron, the founder of Arthavidya Trading Community, brings over five years of hands-on experience in trading and investing through perseverance and continuous learning. He has successfully established himself as a professional trader. Passionate about financial education, he is committed to empowering individuals with the knowledge and strategies needed to achieve financial independence. His teaching methodology focuses on simplifying complex concepts while guiding people toward informed investment decisions and long-term wealth creation.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <h2>IMPORTANT DISCLAIMER</h2>
+            <p>Arthavidya Trading Community is an education and training institute dedicated to providing knowledge on trading and financial markets. We do not offer any form of investment advisory, stock tips, portfolio management, or any unauthorized services that fall under the regulatory framework of the Government of India. Our programs are purely for educational purposes, and we do not guarantee any profits or financial returns. Participants are encouraged to conduct their own research before making any investment decisions.</p>
+            <p>Management reserves the right to deny or revoke admission to any participant, even after the fee has been paid.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <div class="logo-f">
+                        <img src="assets/images/Logo-A.png" alt="Arthavidya Trading Community">
+                        <div class="logo-f-text">
+                            <h1>Arthavidya Trading Community</h1>
+                            <p>Building A Wealthy Nation</p>
+                        </div>
+                    </div>
+                    <a href="mailto:arthavidyacommunity@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>arthavidyacommunity@gmail.com</span>
+                    </a>
+                    <a href="tel:+917854933728" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 7854933728</span>
+                    </a>
+                    <div class="fl-address">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Office:</h3>
+                        <p>Bhubaneswar, Odisha<br>
+                        India</p>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <a href="terms-and-condition.html">Terms and Conditions</a>
+                    <a href="terms-and-condition.html#refund-policy">Refund Policy</a>
+                    <a href="terms-and-condition.html#privacy-policy">Privacy Policy</a>
+                    <a href="enquiry form.html">Get Free Counselling</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Contact Us</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="programs.html">Our Programs</a>
+                    <a href="#">Career</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="success-stories.html">Success Stories</a>                    
+                </div>
+
+                <div class="footer-address">
+                    <h3>Connect with Us:</h3>
+                    <div class="social-links">
+                      <a href="https://www.facebook.com/arthavidyacommunity" class="social-icon" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/arthavidyacommunity/" class="social-icon" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-instagram"></i>
+                      </a>
+                     <a href="https://www.youtube.com/@ArthavidyaCommunity" class="social-icon" target="_blank" rel="noopener noreferrer">
+                     <i class="fab fa-youtube"></i>
+                     </a>
+                     <a href="https://x.com/arthavidyacomm" class="social-icon" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+                     <i class="fab fa-x-twitter"></i>
+                     </a>
+                    </div>
+                </div>                
+            </div>
+            
+            <div class="copyright">
+                <p>Arthavidya Trading Community Pvt Ltd © All Rights Reserved - 2025</p>
+                <p>Design and Developed by Arthavidya Trading Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Function to handle tab switching for Mission & Vision
+        function openTab(tabName) {
+            var i, tabContent, tabButtons;
+            
+            // Hide all tab content
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            tabButtons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            // Show the specific tab content and add active class to the button
+            document.getElementById(tabName).classList.add("active");
+            
+            // Find the button that opened the tab and add active class
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                if (button.textContent.toLowerCase().includes(tabName.toLowerCase())) {
+                    button.classList.add("active");
+                }
+            });
+        }
+        
+        // Partner logos sliding animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Clone the partner logos to create the infinite effect
+            const partnersGrid = document.querySelector('.partners-grid');
+            const partnerLogos = document.querySelectorAll('.partner-logo');
+            
+            // Create a clone of each logo
+            partnerLogos.forEach(logo => {
+                const clone = logo.cloneNode(true);
+                partnersGrid.appendChild(clone);
+            });
+            
+            // Add the necessary CSS for sliding animation
+            const style = document.createElement('style');
+            style.textContent = `
+                .partners-grid {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    gap: 30px;
+                    animation: slideLogos 20s linear infinite;
+                    width: auto;
+                    overflow: visible;
+                }
+                
+                @keyframes slideLogos {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(calc(-100% / 2));
+                    }
+                }
+                
+                .partners-section {
+                    overflow: hidden;
+                }
+                
+                /* Pause animation on hover */
+                .partners-grid:hover {
+                    animation-play-state: paused;
+                }
+                
+                .partner-logo {
+                    flex: 0 0 auto;
+                    min-width: 150px;
+                }
+            `;
+            
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

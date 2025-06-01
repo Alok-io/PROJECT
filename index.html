@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthavidya Trading Community - Building A Wealthy Nation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <style>
+        /* Video Section Styles */
+.video-section {
+    padding: 30px 0;
+    background-color: #f9f9f9;
+}
+
+.video-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.video-description {
+    width: 40%;
+}
+
+.video-description h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.video-description p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.youtube-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FF0000;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.youtube-link i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.youtube-link:hover {
+    background-color: #CC0000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .video-container {
+        flex-direction: column;
+    }
+    
+    .video-container iframe,
+    .video-description {
+        width: 100%;
+    }
+    
+    .video-container iframe {
+        height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-container iframe {
+        height: 250px;
+    }
+    
+    .video-section {
+        padding: 50px 0;
+    }
+}
+/* We Are Different Section - Advanced Styling */
+.we-are-different {
+    padding: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.we-are-different::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/images/pattern.png');
+    opacity: 0.04;
+    z-index: 1;
+}
+
+.we-are-different .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.different-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 40px;
+    position: relative;
+}
+
+.different-text {
+    flex: 1;
+    position: relative;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    transform: translateY(0);
+    transition: all 0.5s ease;
+}
+
+.different-text:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+.different-text::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    font-size: 120px;
+    color: rgb(11 87 164);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.different-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #495057;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.different-image {
+    flex: 1;
+    position: relative;
+}
+
+.different-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.15), 
+                -20px -20px 60px rgba(255, 255, 255, 0.8);
+    transition: all 0.5s ease;
+    filter: brightness(1.05) contrast(1.05);
+}
+
+.different-image::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ff7e5f;
+    border-radius: 15px;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.different-image:hover::before {
+    top: -25px;
+    left: -25px;
+}
+
+.different-image:hover img {
+    transform: scale(1.02);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .different-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .different-text, 
+    .different-image {
+        width: 100%;
+    }
+    
+    .we-are-different {
+        padding: 70px 0;
+    }
+    
+    .we-are-different .section-heading h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .different-text {
+        padding: 30px;
+    }
+    
+    .we-are-different .section-heading {
+        margin-bottom: 40px;
+    }
+    
+    .we-are-different .section-heading h2 {
+        font-size: 28px;
+    }
+    
+    .we-are-different .section-heading p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .we-are-different {
+        padding: 50px 0;
+    }
+    
+    .different-text::before {
+        font-size: 80px;
+        top: -20px;
+    }
+    
+    .different-image::before {
+        display: none;
+    }
+}
+
+.reasons-section {
+            position: relative;
+            overflow: hidden;
+            background: #020024;
+            background: linear-gradient(135deg, #020024 0%, #090979 35%, #00d4ff 100%);
+            padding: 25px 0 0 0;
+        }
+
+        /* Animated Particles */
+        .reasons-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px), 
+                radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+            background-size: 30px 30px, 60px 60px;
+            background-position: 0 0, 15px 15px;
+            animation: particlesAnimation 20s linear infinite;
+        }
+
+        @keyframes particlesAnimation {
+            0% {
+                background-position: 0 0, 15px 15px;
+            }
+            100% {
+                background-position: 300px 300px, 315px 315px;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+
+
+        /* Glass Morphism Cards */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .reason-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 10px 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .reason-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+                        0 0 30px rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Card Gradients */
+        .reason-item::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                rgba(255, 62, 157, 0) 0%, 
+                rgba(255, 62, 157, 0.1) 50%, 
+                rgba(255, 202, 53, 0.1) 100%);
+            top: -50%;
+            left: -50%;
+            transform: rotate(0deg);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+
+        .reason-item:hover::before {
+            transform: rotate(180deg);
+        }
+
+        /* Vibrant Icons */
+        .reason-icon {
+            font-size: 2rem;
+            margin-right: 25px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff3e9d, #ffca35);
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 20px rgba(255, 62, 157, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-icon::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            top: 0;
+            left: -100%;
+            transition: all 0.5s ease;
+        }
+
+        .reason-item:hover .reason-icon {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #ffca35, #ff3e9d);
+        }
+
+        .reason-item:hover .reason-icon::after {
+            left: 100%;
+        }
+
+        .reason-text {
+            flex: 1;
+        }
+
+        .reason-text p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            padding-left: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .reason-text p::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, #ff3e9d, #ffca35);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: height 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .reason-item:hover .reason-text p::before {
+            height: 100%;
+        }
+
+        .reason-item:hover .reason-text p {
+            transform: translateX(10px);
+        }
+
+        /* Floating Animation for Cards */
+        /* @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        } */
+
+        /* Staggered Entry Animation */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .reasons-grid .reason-item {
+            opacity: 0;
+        }
+
+        .reasons-grid .reason-item:nth-child(1) { animation: fadeInScale 0.6s 0.1s ease forwards, floatAnimation 5s 0.7s ease-in-out infinite; }
+        .reasons-grid .reason-item:nth-child(2) { animation: fadeInScale 0.6s 0.3s ease forwards, floatAnimation 5s 0.9s ease-in-out infinite; }
+        .reasons-grid .reason-item:nth-child(3) { animation: fadeInScale 0.6s 0.5s ease forwards, floatAnimation 5s 1.1s ease-in-out infinite; }
+        .reasons-grid .reason-item:nth-child(4) { animation: fadeInScale 0.6s 0.7s ease forwards, floatAnimation 5s 1.3s ease-in-out infinite; }
+        .reasons-grid .reason-item:nth-child(5) { animation: fadeInScale 0.6s 0.9s ease forwards, floatAnimation 5s 1.5s ease-in-out infinite; }
+        .reasons-grid .reason-item:nth-child(6) { animation: fadeInScale 0.6s 1.1s ease forwards, floatAnimation 5s 1.7s ease-in-out infinite; }
+
+        /* Custom Icon Classes to Replace Default */
+        .reason-icon .fa-check-circle::before {
+            content: "\f058";
+        }
+
+        /* Pulse Animation for Icons */
+        @keyframes pulseAnimation {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 62, 157, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 62, 157, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 62, 157, 0);
+            }
+        }
+
+        .reason-icon {
+            animation: pulseAnimation 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .reasons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-heading h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-heading h2 {
+                font-size: 2.3rem;
+            }
+            
+            .reason-item {
+                padding: 30px 25px;
+            }
+            
+            .reason-icon {
+                width: 60px;
+                height: 60px;
+                min-width: 60px;
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <img src="assets/images/Logo-A.png" alt="Arthavidya Trading Community">
+                    <div class="logo-text">
+                        <h1>Arthavidya Trading Community</h1>
+                        <p>Building A Wealthy Nation</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="programs.html">Our Programs <i class="fas fa-caret-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="programs.html#CTP">Complete Trading Program (CTP)</a></li>
+                                <li><a href="programs.html#AMP">Arthavidya Mentorship Program (AMP)</a></li>
+                                <li><a href="programs.html#GMP">Growth Mindset Program (GMP)</a></li>
+                                <li><a href="programs.html#SIP">Smart Income Program (SIP)</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="../dashboard/student/studentfrom.html" class="register-btn">Register</a></li>
+                        <li><a href="login.html" class="login-btn">Login</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Complete Trading Program (CTP)</h2>
+                    <p>The Ultimate Trading Program to Make You Profitable</p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Introduction to Financial Markets</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Basics to Advanced Latest Concepts</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Technical Analysis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Proven High Probability Setups</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Affordable Pricing</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Best Handholding Support System</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Guaranteed 100% Satisfaction</span>
+                        </div>
+                    </div>
+                    <a href="./dashboard/student/studentfrom.html" class="cta-btn">ENROLL NOW</a>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/images/Complete Trading Program (CTP).jpg" alt="Trading Education">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cbbanner">
+        <div class="cbcontainer">     
+            <!-- Content Section -->
+            <div class="cbcontent-section">                
+
+                <!-- Description -->
+                <!-- Event details -->
+                <div class="cbevent-details">
+                    <strong>Date:</strong> Sunday, 25 May 2025
+                    <strong>Time:</strong> 10.00 AM - 11.00 AM<br>
+                    <strong>Mode:</strong> Online / Offline
+                    <strong>Location:</strong> Bhubaneswar
+                </div>
+                
+                <!-- CTA section -->
+                <p class="cbcall-to-action">Secure Your Spot Today!</p>
+                <a href="enquiry form.html" class="cbregister-btn">Register Now</a>
+                <p class="cbdescription">
+                    Unlock secrets of the financial markets and clear myths that hold people back. Our orientation program provides knowledge, skills, and proven strategies you need to succeed in trading and investing.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- We Are Different Section -->
+    <section class="we-are-different">
+        <div class="container">
+            <div class="section-heading">
+                <h2>WE ARE DIFFERENT</h2>
+                <p>AN EMERGING FINANCIAL EDUCATION INSTITUTE</p>
+            </div>
+            <div class="different-content">
+                <div class="different-text">
+                    <p>Arthavidya Trading Community offers specialized and comprehensive trading courses, covering Basic to Advanced levels with a focus on high probability, profitable setups at affordable pricing. Our program provides personalized handholding support, ensuring you gain practical skills and effective trading education through expert mentorship. Committed to excellence, we nurture a supportive & dynamic traders' community for continuous lifelong learning and grow together.</p>
+                </div>
+                <div class="different-image">
+                    <img src="assets/images/trading-screens.jpg" alt="Trading Screens">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Why Section -->
+    <section class="reasons-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2 style="color: #fff;">Reasons Why You Should Choose Us?</h2>
+            </div>
+            <div class="reasons-grid">
+                <div class="reason-item">
+                    <div class="reason-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="reason-text">
+                        <p>Latest and Advanced Concepts</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="reason-text">
+                        <p>Comprehensive Physical & Digital study materials</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="reason-text">
+                        <p>Proven high-probability Strategies</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="reason-text">
+                        <p>Dedicated handholding support</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="reason-text">
+                        <p>Affordable Pricing</p>
+                    </div>
+                </div>
+                <div class="reason-item">
+                    <div class="reason-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="reason-text">
+                        <p>Community Support & Network</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="community-testimonials">
+        <div class="container">
+                <div class="community-section-title">
+                    <h2 style="color:#fff;">Community Success Stories</h2>
+                    <p>Hear from our community members who have transformed their trading journey with Arthavidya</p>
+                </div>
+                
+                <div class="testimonial-slider">
+                    <div class="testimonial-container" id="testimonialContainer">
+                        <!-- Original Testimonials -->
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"Joining the Arthavidya community was the best decision for my trading career. The mentorship and guidance I received played a crucial role in helping me become consistent and profitable."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Kanheyalal Jena</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"The market analysis sessions and handholding support have provided me with unique insights I couldn't get elsewhere. My trading performance has improved dramatically."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Prashanta Kumar Palei</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"Being part of this community has not only improved my trading skills but also connected me with like-minded individuals passionate about financial markets."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Shekhar Chandra Sahu</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Testimonials -->
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"The risk management strategies I learned through Arthavidya's community forums helped me preserve my capital during volatile market conditions and grow my portfolio steadily."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Rajkishore Barik</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"What sets Arthavidya apart is their focus on psychology and emotional discipline. Learning to manage my emotions during trades has been just as valuable as any technical strategy I've learned here."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Rakesh Kumar Jena</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"From a complete beginner to a confident trader - Arthavidya's mentorship program and supportive community transformed my approach to financial markets. I now trade with a clear strategy and conviction."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Gangadhar Hansda</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"As someone who knew nothing about the stock market, I was nervous at first. But the step-by-step guidance and supportive environment have helped me build a strong foundation."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Rashmita Parida</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"I joined Arthavidya with zero knowledge about trading, but the way concepts are explained made it easy to understand. Now, I can read charts and take trades with growing confidence."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Prakash Chandra Nayak</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-testimonial-card">
+                            <p class="community-testimonial-quote">"The daily market insights and pre-market briefings have become an essential part of my trading routine. Having this structured approach has helped me become more disciplined and systematic."</p>
+                            <div class="community-testimonial-author">
+                                <div class="community-testimonial-img">
+                                    <img src="assets/images/community/profile.jpg" alt="Community Member">
+                                </div>
+                                <div class="community-testimonial-info">
+                                    <h4>Ravi Desai</h4>
+                                    <p>Member since 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn">❮</button>
+                    <button class="slider-btn" id="nextBtn">❯</button>
+                </div>
+                
+                <div class="slider-dots" id="sliderDots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>2000+</h3>
+                    <p>Participants</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Students</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5+</h3>
+                    <p>Trainers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Cities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Video Section -->
+<section class="video-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Discover Arthavidya Trading Community</h2>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Partners</h2>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="assets/images/partners/sebi.png" alt="SEBI">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partners/nse.png" alt="NSE">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partners/angel.png" alt="Angel One">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partners/zerodha.png" alt="Zerodha">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partners/upstox.png" alt="Upstox">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <h2>IMPORTANT DISCLAIMER</h2>
+            <p><strong>Arthavidya Trading Community</strong> is an educational institute focused on trading and financial market training. We do not offer investment advice, stock tips, or portfolio management services. All programs are strictly for educational purposes, and we do not guarantee any financial returns. Participants should do their own research before making investment decisions.</p>
+            <p>The management reserves the right to refuse or cancel admission at its discretion, even after payment.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <div class="logo-f">
+                        <img src="assets/images/Logo-A.png" alt="Arthavidya Trading Community">
+                        <div class="logo-f-text">
+                            <h1>Arthavidya Trading Community</h1>
+                            <p>Building A Wealthy Nation</p>
+                        </div>
+                    </div>
+                    <a href="mailto:arthavidyacommunity@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>arthavidyacommunity@gmail.com</span>
+                    </a>
+                    <a href="tel:+917854933728" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 7854933728</span>
+                    </a>
+                    <div class="fl-address">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Office:</h3>
+                        <p>Bhubaneswar, Odisha<br>
+                        India</p>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <a href="terms-and-condition.html">Terms and Conditions</a>
+                    <a href="terms-and-condition.html#refund-policy">Refund Policy</a>
+                    <a href="terms-and-condition.html#privacy-policy">Privacy Policy</a>
+                    <a href="enquiry form.html">Get Free Counselling</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Contact Us</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="programs.html">Our Programs</a>
+                    <a href="#">Career</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="success-stories.html">Success Stories</a>                    
+                </div>
+
+                <div class="footer-address">
+                    <h3>Connect with Us:</h3>
+                    <div class="social-links">
+                      <a href="https://www.facebook.com/arthavidyacommunity" class="social-icon" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/arthavidyacommunity/" class="social-icon" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-instagram"></i>
+                      </a>
+                     <a href="https://www.youtube.com/@ArthavidyaCommunity" class="social-icon" target="_blank" rel="noopener noreferrer">
+                     <i class="fab fa-youtube"></i>
+                     </a>
+                     <a href="https://x.com/arthavidyacomm" class="social-icon" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+                     <i class="fab fa-x-twitter"></i>
+                     </a>
+                    </div>
+                </div>                
+            </div>
+            
+            <div class="copyright">
+                <p>Arthavidya Trading Community Pvt Ltd © All Rights Reserved - 2025</p>
+                <p>Design and Developed by Arthavidya Trading Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('testimonialContainer');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('sliderDots');
+            
+            const cards = document.querySelectorAll('.community-testimonial-card');
+            let slideInterval;
+            
+            // Function to calculate dimensions and set up slider
+            function setupSlider() {
+                // Clear existing dots
+                dotsContainer.innerHTML = '';
+                
+                // Reset container styles
+                container.style.transition = 'none';
+                container.style.transform = 'translateX(0)';
+                
+                // Determine how many cards to show based on screen width
+                let visibleCards;
+                if (window.innerWidth >= 1200) {
+                    visibleCards = 3;
+                } else if (window.innerWidth >= 768) {
+                    visibleCards = 2;
+                } else {
+                    visibleCards = 1;
+                }
+                
+                // Make sure cards have proper sizing
+                cards.forEach(card => {
+                    if (window.innerWidth >= 1200) {
+                        card.style.flex = '0 0 calc(33.333% - 20px)';
+                    } else if (window.innerWidth >= 768) {
+                        card.style.flex = '0 0 calc(50% - 20px)';
+                    } else {
+                        card.style.flex = '0 0 calc(100% - 20px)';
+                    }
+                });
+                
+                // Get current card width after styles have been applied
+                let cardWidth;
+                if (visibleCards === 1) {
+                    // On mobile, use the container width
+                    cardWidth = container.offsetWidth;
+                } else {
+                    // Calculate based on first card
+                    cardWidth = cards[0].offsetWidth + 
+                                parseInt(window.getComputedStyle(cards[0]).marginLeft) + 
+                                parseInt(window.getComputedStyle(cards[0]).marginRight);
+                }
+                
+                const totalGroups = Math.ceil(cards.length / visibleCards);
+                let currentIndex = 0;
+                
+                // Clone cards for infinite loop
+                const originalCards = Array.from(cards);
+                
+                // Remove any previously cloned cards
+                document.querySelectorAll('.cloned-card').forEach(card => card.remove());
+                
+                // Add clones to the beginning and end
+                for (let i = cards.length - 1; i >= Math.max(0, cards.length - visibleCards); i--) {
+                    const clone = originalCards[i].cloneNode(true);
+                    clone.classList.add('cloned-card');
+                    container.insertBefore(clone, container.firstChild);
+                }
+                
+                for (let i = 0; i < visibleCards; i++) {
+                    const clone = originalCards[i].cloneNode(true);
+                    clone.classList.add('cloned-card');
+                    container.appendChild(clone);
+                }
+                
+                // Adjust container position to show original first cards
+                setTimeout(() => {
+                    container.style.transition = 'none';
+                    if (visibleCards === 1) {
+                        container.style.transform = `translateX(${-cardWidth}px)`;
+                    } else {
+                        container.style.transform = `translateX(${-cardWidth * visibleCards}px)`;
+                    }
+                }, 0);
+                
+                // Create dots for navigation
+                for (let i = 0; i < totalGroups; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        goToSlide(i);
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+                
+                // Update dots function
+                function updateDots() {
+                    const dots = document.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+                
+                // Go to specific slide function
+                function goToSlide(index, transition = true) {
+                    currentIndex = index;
+                    
+                    if (transition) {
+                        container.style.transition = 'transform 0.5s ease';
+                    } else {
+                        container.style.transition = 'none';
+                    }
+                    
+                    let offset;
+                    if (visibleCards === 1) {
+                        offset = -((index + 1) * cardWidth);
+                    } else {
+                        offset = -((index + 1) * (cardWidth * visibleCards));
+                    }
+                    
+                    container.style.transform = `translateX(${offset}px)`;
+                    updateDots();
+                    
+                    if (transition) {
+                        // Handle infinite loop
+                        if (index === -1) {
+                            setTimeout(() => {
+                                container.style.transition = 'none';
+                                if (visibleCards === 1) {
+                                    container.style.transform = `translateX(${-(totalGroups * cardWidth)}px)`;
+                                } else {
+                                    container.style.transform = `translateX(${-(totalGroups * cardWidth * visibleCards)}px)`;
+                                }
+                                currentIndex = totalGroups - 1;
+                                updateDots();
+                                
+                                setTimeout(() => {
+                                    container.style.transition = 'transform 0.5s ease';
+                                }, 50);
+                            }, 500);
+                        } else if (index === totalGroups) {
+                            setTimeout(() => {
+                                container.style.transition = 'none';
+                                if (visibleCards === 1) {
+                                    container.style.transform = `translateX(${-cardWidth}px)`;
+                                } else {
+                                    container.style.transform = `translateX(${-cardWidth * visibleCards}px)`;
+                                }
+                                currentIndex = 0;
+                                updateDots();
+                                
+                                setTimeout(() => {
+                                    container.style.transition = 'transform 0.5s ease';
+                                }, 50);
+                            }, 500);
+                        }
+                    }
+                }
+                
+                // Initial positioning
+                goToSlide(0, false);
+                
+                // Previous button handler
+                prevBtn.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    goToSlide(currentIndex - 1);
+                    startAutoSlide();
+                });
+                
+                // Next button handler
+                nextBtn.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    goToSlide(currentIndex + 1);
+                    startAutoSlide();
+                });
+                
+                // Auto slide function
+                function startAutoSlide() {
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(() => {
+                        goToSlide(currentIndex + 1);
+                    }, 5000);
+                }
+                
+                // Start auto slide
+                startAutoSlide();
+                
+                // Pause on hover
+                container.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                
+                container.addEventListener('mouseleave', () => {
+                    startAutoSlide();
+                });
+                
+                // Enable touch swiping
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                container.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    clearInterval(slideInterval);
+                }, { passive: true });
+                
+                container.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                    startAutoSlide();
+                }, { passive: true });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        // Swipe left
+                        goToSlide(currentIndex + 1);
+                    } else if (touchEndX > touchStartX + swipeThreshold) {
+                        // Swipe right
+                        goToSlide(currentIndex - 1);
+                    }
+                }
+                
+                return { updateSlider: goToSlide };
+            }
+            
+            // Set up slider initially
+            let slider = setupSlider();
+            
+            // Update slider on window resize
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                clearInterval(slideInterval);
+                
+                resizeTimer = setTimeout(() => {
+                    slider = setupSlider();
+                }, 250);
+            });
+        });
+    </script>
+    <script>
+        
+        // Add this script at the end of your body tag or in your JS file
+        document.addEventListener('DOMContentLoaded', function() {
+            // Clone the partner logos to create the infinite effect
+            const partnersGrid = document.querySelector('.partners-grid');
+            const partnerLogos = document.querySelectorAll('.partner-logo');
+            
+            // Create a clone of each logo
+            partnerLogos.forEach(logo => {
+                const clone = logo.cloneNode(true);
+                partnersGrid.appendChild(clone);
+            });
+            
+            // Add the necessary CSS for sliding animation
+            const style = document.createElement('style');
+            style.textContent = `
+                .partners-grid {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    gap: 30px;
+                    animation: slideLogos 20s linear infinite;
+                    width: auto;
+                    overflow: visible;
+                }
+                
+                @keyframes slideLogos {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(calc(-100% / 2));
+                    }
+                }
+                
+                .partners-section {
+                    overflow: hidden;
+                }
+                
+                /* Pause animation on hover */
+                .partners-grid:hover {
+                    animation-play-state: paused;
+                }
+                
+                .partner-logo {
+                    flex: 0 0 auto;
+                    min-width: 150px;
+                }
+            `;
+            
+            document.head.appendChild(style);
+        });
+            </script>
+</body>
+</html>
